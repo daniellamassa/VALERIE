@@ -1,0 +1,94 @@
+FloatLayout:
+
+    MDRaisedButton:
+        pos_hint: {'center_x': 0.23, 'center_y': 0.93}
+        text: 'Move Forward'
+        on_press: app.move(0.5,True)
+
+    MDRaisedButton:
+        pos_hint: {'center_x': 0.23, 'center_y': 0.77}
+        text: 'Move Backward'
+        on_press: app.move(0.5,False)
+
+
+    MDRaisedButton:
+        pos_hint: {'center_x': 0.15, 'center_y': 0.85}
+        text: 'Move Left'
+
+    MDRaisedButton:
+        pos_hint: {'center_x': 0.3, 'center_y': 0.85}
+        text: 'Move Right'
+
+    MDRoundFlatIconButton:
+        icon: "rotate-left"
+        text: "Rotate Left"
+        pos_hint: {'center_x': 0.13, 'center_y': 0.66}
+        on_press: app.rotate(5,True)
+
+
+    MDRoundFlatIconButton:
+        icon: "rotate-right"
+        text: "Rotate Right"
+        pos_hint: {'center_x': 0.3, 'center_y': 0.66}
+        on_press: app.rotate(5,False)
+
+
+    MDDropDownItem:
+        id: button
+        text: "Speech Select"
+        pos_hint: {"center_x": .7, "center_y": .95}
+        on_release: app.menu.open()
+
+    MDSwitch:
+        pos_hint: {'center_x': .15, 'center_y': .5}
+        width: dp(40)
+
+    MDFlatButton:
+        text: "Toggle Microphone: ON/OFF"
+        pos_hint: {'center_x': .15, 'center_y': .55}
+
+    MDFlatButton:
+        text: "Facial Expression Select"
+        pos_hint: {'center_x': .5, 'center_y': .42}
+
+    MDGridLayout:
+        cols: 4
+        row_default_height: 200 #(self.width - self.cols*self.spacing[0]) / self.cols
+        row_force_default: True
+        adaptive_height: True
+        padding: dp(35), dp(7), dp(35), dp(7) #[padding_left, padding_top, padding_right, padding_bottom].
+        spacing: dp(20)
+
+        SmartTileWithLabel:
+            source: "neutral.png"
+            text: "[size=26]Neutral"
+
+        SmartTileWithLabel:
+            source: "smile.png"
+            text: "[size=26]Smile"
+            on_press: app.expression_display("expression::smile::500::1000")
+
+
+        SmartTileWithLabel:
+            source: "laugh.png"
+            text: "[size=26]Happy"
+
+        SmartTileWithLabel:
+            source: "sad.png"
+            text: "[size=26]Sad"
+
+        SmartTileWithLabel:
+            source: "angry.png"
+            text: "[size=26]Angry"
+
+        SmartTileWithLabel:
+            source: "scared.png"
+            text: "[size=26]Scared"
+
+        SmartTileWithLabel:
+            source: "surprised.png"
+            text: "[size=26]Surprised"
+
+        SmartTileWithLabel:
+            source: "disgusted.png"
+            text: "[size=26]Disgusted"
